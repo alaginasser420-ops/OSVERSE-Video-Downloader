@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111111">
+  <title>OSVERSE Video Downloader</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand-mark">O<span>AI</span></div>
+      <div>
+        <div class="brand-name">OSVERSE <span>VIDEO DOWNLOADER</span></div>
+        <div class="brand-sub">DOWNLOAD. CONVERT. ORGANIZE.</div>
+      </div>
+      <div class="local-pill"><i></i> يعمل محلياً</div>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">MULTI-PLATFORM VIDEO TOOL</div>
+      <h1>نزّل الفيديو، <em>ببساطة.</em></h1>
+      <p>ألصق رابطاً عاماً من منصة مدعومة، ثم اختر الجودة والصيغة المناسبة.</p>
+    </section>
+
+    <section class="panel">
+      <label for="videoUrl">رابط الفيديو</label>
+      <div class="url-row">
+        <input id="videoUrl" type="url" placeholder="https://..." autocomplete="url">
+        <button id="inspectBtn" class="primary">تحليل الرابط</button>
+      </div>
+      <div class="hint">يدعم المواقع التي تتوافق مع yt-dlp. بعض الروابط تتطلب تسجيل دخول أو لا تسمح بالتنزيل.</div>
+      <div id="alert" class="alert hidden"></div>
+    </section>
+
+    <section id="videoCard" class="panel video-card hidden">
+      <img id="thumbnail" alt="الصورة المصغرة للفيديو">
+      <div class="video-meta">
+        <div class="eyebrow">VIDEO INFORMATION</div>
+        <h2 id="videoTitle"></h2>
+        <p id="videoDetails"></p>
+      </div>
+    </section>
+
+    <section id="downloadPanel" class="panel hidden">
+      <div class="section-head">
+        <div><div class="eyebrow">OUTPUT SETTINGS</div><h2>إعدادات التنزيل</h2></div>
+      </div>
+      <label for="quality">الجودة / الصيغة</label>
+      <select id="quality">
+        <option value="best">أفضل جودة متاحة</option>
+        <option value="1080">1080p (إن توفرت)</option>
+        <option value="720">720p (إن توفرت)</option>
+        <option value="480">480p (إن توفرت)</option>
+        <option value="360">360p (إن توفرت)</option>
+        <option value="audio">استخراج الصوت MP3</option>
+      </select>
+      <button id="downloadBtn" class="primary full">بدء التنزيل</button>
+      <div id="progressArea" class="progress-area hidden">
+        <div class="progress-label"><span id="progressMessage">جارٍ التحضير...</span><strong id="progressValue">0%</strong></div>
+        <div class="progress-track"><div id="progressBar"></div></div>
+      </div>
+      <a id="saveLink" class="save-link hidden" href="#">تنزيل الملف إلى جهازك</a>
+    </section>
+
+    <footer>
+      <span>OSVERSE AI</span> · أداة محلية مفتوحة المصدر
+      <p>استخدم الأداة لتنزيل المحتوى الذي تملكه أو لديك إذن بتنزيله، واحترم شروط المنصات وحقوق النشر.</p>
+    </footer>
+  </main>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
